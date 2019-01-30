@@ -2,31 +2,23 @@ import * as firebase from 'firebase';
 require("firebase/firestore");
 
 var collectionMeta={
-	"events":{
-		"fields":{
-			"group":"REFERENCE:/groups/YOURDEFAULTGROUP",
-			"name":"D New Event name",
-			"tickets":["some"],
-			"location":new firebase.firestore.GeoPoint(41.22, 22.34)
-		},
-		"collections":["tickets"],
+	"medical_effects": {
+		"collections": [],
+		"fields" : { 
+			"effect_name" : "Effect Name"
+		}
 	},
-	"tickets":{
-		"fields":{
-			"price":"300",
-			"name":"Regular"
-		},
-		"collections":["nested"],
+	"negative_effects":{
+		"collections": [],
+		"fields" : { 
+			"effect_name" : "Effect Name"
+		}
 	},
-	"nested":{
-		"fields":{
-			"name":"nested collection"
-		},
-		"collections":[],
-	},
-	"TEMPLATE":{
-		"fields":{},
-		"collections":[],
+	"positive_effects":{
+		"collections": [],
+		"fields" : { 
+			"effect_name" : "Effect Name"
+		}
 	}
 }
 module.exports = collectionMeta;

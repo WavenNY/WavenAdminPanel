@@ -112,7 +112,7 @@ exports.navigation=[
     
     {
       "link": "firestoreadmin",
-      "path": "",
+      "path": "effects",
       "name": "Effects",
       "icon":"event",
       "tableFields":[],
@@ -200,10 +200,10 @@ exports.navigation=[
       "tableFields":["name","description"],
     },{
       "link": "firestoreadmin",
-      "path": "events",
-      "name": "FireStore Events",
+      "path": "medical_effects",
+      "name": "Medical Effects",
       "icon":"event",
-      "tableFields":["name"],
+      "tableFields":["effect_name"],
     },{
       "link": "link",
       "path": "http://mobidonia.com",
