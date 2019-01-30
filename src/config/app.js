@@ -5,8 +5,8 @@ exports.firebaseConfig = firebaseConfig.config;
 
 //App setup
 exports.adminConfig={
-  "appName": "FireAdmin",
-  "slogan":"made with love for a better firebase.",
+  "appName": "Waven Admin Panel",
+  "slogan":"Waven Admin panel made with love for a backend management.",
   "design":{
     "sidebarBg":"sidebar-1.jpg", //sidebar-1, sidebar-2, sidebar-3
     "dataActiveColor":"rose", //"purple | blue | green | orange | red | rose"
