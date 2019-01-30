@@ -109,38 +109,32 @@ exports.navigation=[
       "path": "",
        isIndex:true,
     },
+    
     {
       "link": "firestoreadmin",
-      "path": "userStats",
-      "name": "userStats",
-      "icon":"event",
-      "tableFields":["uidOfFirebase"],
-    },
-    {
-      "link": "fireadmin",
-      "path": "events",
-      "name": "Events",
+      "path": "",
+      "name": "Effects",
       "icon":"event",
       "tableFields":[],
       "subMenus":[
         {
-          "link": "fireadmin",
-          "path": "events/skopje/items",
-          "name": "Skopje",
+          "link": "firestoreadmin",
+          "path": "medical_effects",
+          "name": "Medical Effects",
           "icon":"event",
-          "tableFields":["name","description","club.name","start", "photo"],
+          "tableFields":["effect_name"],
         },{
-          "link": "fireadmin",
-          "path": "events/sofia/items",
-          "name": "Sofia",
+          "link": "firestoreadmin",
+          "path": "negative_effects",
+          "name": "Negative Effects",
           "icon":"event",
-          "tableFields":["name","description"],
+          "tableFields":["effect_name"],
         },{
-          "link": "fireadmin",
-          "path": "events/belgrade/items",
-          "name": "Belgrade",
+          "link": "firestoreadmin",
+          "path": "positive_effects",
+          "name": "Positive Effects",
           "icon":"event",
-          "tableFields":["name","description"],
+          "tableFields":["effect_name"],
         }
       ]
     },
