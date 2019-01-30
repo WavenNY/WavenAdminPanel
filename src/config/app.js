@@ -113,7 +113,7 @@ exports.navigation=[
     {
       "link": "firestoreadmin",
       "path": "effects",
-      "name": "Effects",
+      "name": "Product / Strain Effects",
       "icon":"event",
       "tableFields":[],
       "subMenus":[
@@ -139,32 +139,11 @@ exports.navigation=[
       ]
     },
     {
-      "link": "fireadmin",
-      "path": "clubs",
-      "name": "Clubs",
-      "icon":"room",
-      "tableFields":["name","description"],
-      "subMenus":[
-        {
-          "link": "fireadmin",
-          "path": "clubs/skopje/items",
-          "name": "Skopje",
-          "icon":"event",
-          "tableFields":["name","description"]
-        },{
-          "link": "fireadmin",
-          "path": "clubs/sofia/items",
-          "name": "Sofia",
-          "icon":"event",
-          "tableFields":["name","description"],
-        },{
-          "link": "fireadmin",
-          "path": "clubs/belgrade/items",
-          "name": "Belgrade",
-          "icon":"event",
-          "tableFields":["name","description"],
-        }
-      ]
+      "link": "firestoreadmin",
+      "path": "product_types",
+      "name": "Product Categories",
+      "icon":"event",
+      "tableFields":["category_name"],
     },
     {
       "link": "fireadmin",
