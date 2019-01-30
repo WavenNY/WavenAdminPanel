@@ -8,9 +8,9 @@ exports.adminConfig={
   "appName": "Waven Admin Panel",
   "slogan":"Waven Admin panel made with love for a backend management.",
   "design":{
-    "sidebarBg":"sidebar-1.jpg", //sidebar-1, sidebar-2, sidebar-3
-    "dataActiveColor":"rose", //"purple | blue | green | orange | red | rose"
-    "dataBackgroundColor":"black", // "white | black"
+    "sidebarBg":"sidebar-2.jpg", //sidebar-1, sidebar-2, sidebar-3
+    "dataActiveColor":"red", //"purple | blue | green | orange | red | rose"
+    "dataBackgroundColor":"white", // "white | black"
   },
   "showItemIDs":false,
   "allowedUsers":null, //If null, allow all users, else it should be array of allowd users
@@ -29,11 +29,11 @@ exports.adminConfig={
     "photo":["photo","image"],
     "dateTime":["end","start"],
     "map":["map","latlng","location"],
-    "textarea":["description"],
+    "textarea":["description", "ProductDescription","ProductDetails"],
     "html":["content"],
     "radio":["radio","radiotf","featured"],
     "checkbox":["checkbox"],
-    "dropdowns":["status","dropdowns"],
+    "dropdowns":["status","dropdowns", "Type"],
     "file":["video"],
     "rgbaColor":['rgba'],
     "hexColor":['color'],
@@ -53,7 +53,8 @@ exports.adminConfig={
       {"key":"status","options":["just_created","confirmed","canceled"]},
       {"key":"radio","options":["no","maybe","yes"]},
       {"key":"radiotf","options":["true","false"]},
-      {"key":"featured","options":["true","false"]}
+      {"key":"featured","options":["true","false"]},
+      {"key":"Type","options":["Hybrid","Sativa","Indica"]}
   ],
   "optionsForRelation":[
       {
@@ -91,7 +92,7 @@ exports.adminConfig={
       }
   ],
   "paging":{
-    "pageSize": 5,
+    "pageSize": 10,
     "finite": true,
     "retainLastPage": false
   },
@@ -154,11 +155,19 @@ exports.navigation=[
     },
     {
       "link": "firestoreadmin",
-      "path": "userdata/{useruuid}",
-      "name": "My Profile",
-      "icon": "perm_identity",
-      "tableFields":[],
+      "path": "testdump_strains",
+      "name": "Strains Data",
+      "icon":"event",
+      "tableFields":["Name", "Type", "ProductDescription", "Rating"]
+    },
+    {
+      "link": "firestoreadmin",
+      "path": "test_products",
+      "name": "Products Data",
+      "icon":"event",
+      "tableFields":["ProductName", "category_name", "ProductDescription", "StarRating", ""]
     }
+    
     
   ];
 
