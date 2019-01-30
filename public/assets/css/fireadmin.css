@@ -1,0 +1,89 @@
+.iphoneImg {
+    position: relative;
+    width: 100px; /* for IE 6 */
+    height:300px;
+ }
+ 
+ .pushText {
+    position: absolute;
+    top: 424px;
+    left: 120px;
+    width: 60%;
+    font-size:16px;
+    color: black;
+ }
+
+ .rt-td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .fireadmin-user_image {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+ }
+
+.userForm{
+   /* Other styling... */
+   text-align: right;
+   clear: both;
+   float:left;
+   margin-right:15px;
+}
+
+.labelUserProfile{
+   margin-top: 35px;
+}
+
+.userPassword{
+   text-align: right;
+   clear: both;
+   float:left;
+   margin-right:15px;
+}
+
+.colBilling {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.colBillingText{
+   padding-top: 8px;
+}
+
+.btnSubsc {
+   border: 2px solid black;
+   background-color: white;
+   color: black;
+   padding: 14px 28px;
+   font-size: 16px;
+   cursor: pointer;
+ }
+
+ .btnSubsDefault {
+   border-color: #e7e7e7;
+   color: black;
+ }
+ 
+ .btnSubsDefault:hover {
+   background: #e7e7e7;
+ }
+
+ .btnSubsDanger {
+   border-color: #f44336;
+   color: red
+ }
+ 
+ .btnSubsDanger:hover {
+   background: #f44336;
+   color: white;
+ }
+
+ .navCustom{
+    background-color: #343a40;
+    color: white;
+ }
+
