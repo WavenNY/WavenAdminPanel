@@ -146,56 +146,20 @@ exports.navigation=[
       "tableFields":["category_name"],
     },
     {
-      "link": "fireadmin",
+      "link": "firestoreadmin",
+      "path": "strain_types",
+      "name": "Strain Types",
+      "icon":"event",
+      "tableFields":["category_name"],
+    },
+    {
+      "link": "firestoreadmin",
       "path": "userdata/{useruuid}",
       "name": "My Profile",
       "icon": "perm_identity",
       "tableFields":[],
-    },
-    {
-      "link": "fireadmin",
-      "path": "pending",
-      "name": "Pending",
-      "icon":"done",
-      "tableFields":[],
-    },
-    {
-      "link": "fireadmin",
-      "path": "bookings",
-      "name": "Bookings",
-      "icon":"done",
-      "tableFields":[],
-    },{
-      "link": "fireadmin",
-      "path": "static",
-      "name": "Cities & Genres",
-      "icon":"location_city",
-      "tableFields":[],
-    },{
-      "link": "fireadmin",
-      "path": "design",
-      "name": "Design",
-      "icon":"location_city",
-      "tableFields":["name","description"],
-    },{
-      "link": "firestoreadmin",
-      "path": "medical_effects",
-      "name": "Medical Effects",
-      "icon":"event",
-      "tableFields":["effect_name"],
-    },{
-      "link": "link",
-      "path": "http://mobidonia.com",
-      "name": "Mobidonia.com",
-      "icon": "web",
-      "tableFields":["name"],
-    },{
-      "link": "push",
-      "path": "",
-      "name": "Push notification",
-      "icon":"speaker_notes",
-      "tableFields":[],
     }
+    
   ];
 
   //From v 5.1.0 we suggest remoteSetup due to security

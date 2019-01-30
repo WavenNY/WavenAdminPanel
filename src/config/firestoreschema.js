@@ -8,13 +8,13 @@ var collectionMeta={
 			"effect_name" : "Effect Name"
 		}
 	},
-	"negative_effects":{
+	"negative_effects": {
 		"collections": [],
 		"fields" : { 
 			"effect_name" : "Effect Name"
 		}
 	},
-	"positive_effects":{
+	"positive_effects": {
 		"collections": [],
 		"fields" : { 
 			"effect_name" : "Effect Name"
@@ -24,6 +24,12 @@ var collectionMeta={
 		"collections": [],
 		"fields" : { 
 			"category_name" : "Category Name"
+		},
+	},
+	"strain_types": {
+		"collections": [],
+		"fields": {
+			"category_name" : "Strain Type Name"
 		}
 	}
 }
