@@ -54,18 +54,54 @@ class App extends Component {
        
 
 
-            <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
+            <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">
               Strain Type Analytics
             </h3>
           </div>
-          <div class="panel-body">
-            <table class="table table-stripe">
+          <div className="panel-body">
+            <table className="table table-stripe">
               <thead>
                 <tr>
                   <th>Strain Type</th>
+                  <th>Total Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>Hybrid</td>
+                    <td>{this.state.hybrid}</td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Indica</td>
+                    <td>{this.state.indica}</td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Sativa</td>
+                    <td>{this.state.sativa}</td>
+                   
+                  </tr>
+              
+              </tbody>
+            </table>
+          </div>
+
+          <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">
+              Product Type Analytics
+            </h3>
+          </div>
+          <div className="panel-body">
+            <table className="table table-stripe">
+              <thead>
+                <tr>
+                  <th>Product Type</th>
                   <th>Total Count</th>
                 </tr>
               </thead>
