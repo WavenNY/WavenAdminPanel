@@ -5,9 +5,10 @@ import React from 'react'
 
 class Notification extends React.Component {
     constructor(props){
-        super(props)
+                super(props)
         this.state={shown:true}
     }
+    
 
     render (){
         if(this.state.shown){

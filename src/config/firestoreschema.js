@@ -38,7 +38,8 @@ var collectionMeta={
 			"Name": "Strain Name",
 			"Type": "Strain Category",
 			"Rating": "Ratings",
-			"ProductDescription": "Strain Description"
+			"ProductDescription": "Strain Description",
+			"TotalReviews":""
 		}
 	},
 	"Effects": {

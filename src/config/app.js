@@ -158,7 +158,7 @@ exports.navigation=[
       "path": "testdump_strains",
       "name": "Strains Data",
       "icon":"event",
-      "tableFields":["Name", "Type", "ProductDescription", "Rating"]
+      "tableFields":["Name", "Type", "ProductDescription", "Rating", "TotalReviews"]
     },
     {
       "link": "firestoreadmin",
