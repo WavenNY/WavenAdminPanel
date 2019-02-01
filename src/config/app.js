@@ -13,6 +13,7 @@ exports.adminConfig={
     "dataBackgroundColor":"white", // "white | black"
   },
   "showItemIDs":false,
+  
   "allowedUsers":null, //If null, allow all users, else it should be array of allowd users
   "allowGoogleAuth":true, //Allowed users must contain list of allowed users in order to use google auth
   "allowRegistration":false, //Should there be register page
@@ -165,7 +166,7 @@ exports.navigation=[
       "path": "test_products",
       "name": "Products Data",
       "icon":"event",
-      "tableFields":["ProductName", "category_name", "ProductDescription", "StarRating", ""]
+      "tableFields":["ProductName", "category_name", "ProductDescription", "StarRating", "TotalReviews"]
     }
     
     
