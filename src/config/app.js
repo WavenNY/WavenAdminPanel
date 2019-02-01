@@ -8,7 +8,7 @@ exports.adminConfig={
   "appName": "Waven Admin Panel",
   "slogan":"Waven Admin panel made with love for a backend management.",
   "design":{
-    "sidebarBg":"sidebar-2.jpg", //sidebar-1, sidebar-2, sidebar-3
+    "sidebarBg":"", //sidebar-1, sidebar-2, sidebar-3
     "dataActiveColor":"red", //"purple | blue | green | orange | red | rose"
     "dataBackgroundColor":"white", // "white | black"
   },

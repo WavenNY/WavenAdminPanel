@@ -6,15 +6,21 @@ import firebase from '../FirebaseDB'
 class App extends Component {
   constructor(props){
     super(props);
-    super(props);
+
     this.sref = firebase.firestore().collection('testdump_strains');
-    
+    this.pref = firebase.firestore().collection('test_products');
 
     this.unsubscribe = null;
     this.state = {
       indica: 0,
       sativa: 0,
-      hybrid: 0
+      hybrid: 0,
+      vapes: 0,
+      cannabis: 0,
+      topicals: 0,
+      concentrates: 0,
+      hempcbd: 0,
+      edibles: 0
     }
   }
   componentDidMount(){
@@ -23,6 +29,12 @@ class App extends Component {
    var hybrid = 0;
    var indica = 0;
    var sativa = 0;
+   var vapes = 0;
+   var cannabis = 0;
+   var topicals = 0;
+   var concentrates = 0;
+   var hempcbd = 0;
+   var edibles = 0;
 
     this.sref.onSnapshot( docSnap => { 
      
@@ -43,6 +55,47 @@ class App extends Component {
       })
     });
 
+    this.pref.onSnapshot( docSnap => {
+      docSnap.forEach( doc => {
+        var docData = doc.data();
+        if( docData.category_name != undefined ) {
+          switch( docData.category_name) {
+            case "Vapes" :
+              vapes++;
+              break;
+
+            case "Cannabis":
+              cannabis++;
+              break;
+
+            case "Topicals":
+              topicals++;
+              break;
+
+            case "Concentrates":
+              concentrates++;
+              break;
+
+            case "Hemp CBD":
+              hempcbd++;
+              break;
+
+            case "Edibles":
+              edibles++;
+              break;
+          }
+        }
+      })
+      this.setState({
+        vapes,
+        cannabis,
+        topicals,
+        concentrates,
+        hempcbd,
+        edibles
+      })
+    })
+
     
     console.log("Componennt Mounted")
   }
@@ -54,7 +107,7 @@ class App extends Component {
        
 
 
-            <div className="container">
+         <div className="container">
         <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">
@@ -91,7 +144,11 @@ class App extends Component {
             </table>
           </div>
 
-          <div className="panel panel-default">
+          
+        </div>
+      </div>
+      <div className="container">
+        <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">
               Product Type Analytics
@@ -108,26 +165,43 @@ class App extends Component {
               <tbody>
                 
                   <tr>
-                    <td>Hybrid</td>
-                    <td>{this.state.hybrid}</td>
+                    <td>Vapes</td>
+                    <td>{this.state.vapes}</td>
                    
                   </tr>
                   <tr>
-                    <td>Indica</td>
-                    <td>{this.state.indica}</td>
+                    <td>Cannabis</td>
+                    <td>{this.state.cannabis}</td>
                    
                   </tr>
                   <tr>
-                    <td>Sativa</td>
-                    <td>{this.state.sativa}</td>
+                    <td>Topicals</td>
+                    <td>{this.state.topicals}</td>
                    
                   </tr>
-              
+                  <tr>
+                    <td>Concentrates</td>
+                    <td>{this.state.concentrates}</td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Hemp CBD</td>
+                    <td>{this.state.hempcbd}</td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Edibles</td>
+                    <td>{this.state.edibles}</td>
+                   
+                  </tr>
               </tbody>
             </table>
           </div>
+
+          
         </div>
       </div>
+     
       </div>
     )
   }
