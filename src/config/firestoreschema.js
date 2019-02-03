@@ -42,6 +42,16 @@ var collectionMeta={
 			"TotalReviews":""
 		}
 	},
+	"strains2": {
+		"collections": ["Effects", "Flavours", "Medical"],
+		"fields": {
+			"Name": "Strain Name",
+			"Type": "Strain Category",
+			"Rating": "Ratings",
+			"ProductDescription": "Strain Description",
+			"TotalReviews":""
+		}
+	},
 	"Effects": {
 		"collections": [],
 		"fields": {

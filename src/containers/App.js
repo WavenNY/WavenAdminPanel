@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.sref = firebase.firestore().collection('testdump_strains');
+    this.sref = firebase.firestore().collection('strains2');
     this.pref = firebase.firestore().collection('test_products');
 
     this.unsubscribe = null;
