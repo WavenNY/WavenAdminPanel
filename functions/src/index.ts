@@ -27,19 +27,19 @@ const client = algoliasearch(
 const ALGOLIA_INDEX = "search_strain_products";
 
 
-// Listen for any write change on documents in collection `strains2`
-exports.strainWrite = functions.firestore
-    .document('strains2/{UID}').onWrite((change: any, context: any) => {
-        const index = client.initIndex(ALGOLIA_INDEX);
-        const changeSnapshot = change.after.data();
-        if (!change.after.exists) {
-            return;
-        }
-        var firebaseObject = changeSnapshot;
-        firebaseObject.objectID = context.params.UID;
-        console.log("Strain Write - Adding record to Algolia");
-        return index.saveObject(firebaseObject);
-    });
+// // Listen for any write change on documents in collection `strains2`
+// exports.strainWrite = functions.firestore
+//     .document('strains2/{UID}').onWrite((change: any, context: any) => {
+//         const index = client.initIndex(ALGOLIA_INDEX);
+//         const changeSnapshot = change.after.data();
+//         if (!change.after.exists) {
+//             return;
+//         }
+//         var firebaseObject = changeSnapshot;
+//         firebaseObject.objectID = context.params.UID;
+//         console.log("Strain Write - Adding record to Algolia");
+//         return index.saveObject(firebaseObject);
+//     });
 
 
 
@@ -77,10 +77,51 @@ exports.strainCreate = functions.firestore
 exports.strainDelete = functions.firestore
     .document('strains2/{UID}').onDelete((snap: any, context: any) => {
         const index = client.initIndex(ALGOLIA_INDEX);
-        const objectID = context.params.id
+        const objectID = context.params.UID
         console.log("Strain Delete - Deleting record to Algolia");
 
         return index.deleteObject(objectID);
     });
 
  
+// Hook on products db
+// Listen for any update change on documents in collection `test_products`
+exports.productUpdate = functions.firestore
+    .document('test_products/{UID}').onUpdate((change: any, context: any) => {
+        const index = client.initIndex(ALGOLIA_INDEX);
+        const changeSnapshot = change.after.data();
+        if (!change.after.data()) {
+            return;
+        }
+        var firebaseObject = changeSnapshot;
+        firebaseObject.objectID = context.params.UID;
+        console.log("Product Update - Adding record to Algolia");
+
+        return index.saveObject(firebaseObject);
+    });
+
+// Listen for any new addition on documents in collection `test_products`
+exports.productCreate = functions.firestore
+    .document('test_products/{UID}').onCreate((snap: any, context: any) => {
+        const index = client.initIndex(ALGOLIA_INDEX);
+        const changeSnapshot = snap.data();
+        if (!changeSnapshot) {
+            return;
+        }
+        var firebaseObject = changeSnapshot;
+        firebaseObject.objectID = context.params.UID;
+        console.log("Product Create - Adding record to Algolia");
+
+        return index.saveObject(firebaseObject);
+    });
+
+// Listen for any deletion on documents in collection `test_products`
+exports.productDelete = functions.firestore
+    .document('test_products/{UID}').onDelete((snap: any, context: any) => {
+        const index = client.initIndex(ALGOLIA_INDEX);
+        const objectID = context.params.UID
+        console.log("Product Delete - Deleting record to Algolia");
+
+        return index.deleteObject(objectID);
+    });
+
