@@ -163,7 +163,7 @@ exports.navigation=[
     },
     {
       "link": "firestoreadmin",
-      "path": "test_products",
+      "path": "latestprods",
       "name": "Products Data",
       "icon":"event",
       "tableFields":["ProductName", "category_name", "ProductDescription", "StarRating", "TotalReviews"]
