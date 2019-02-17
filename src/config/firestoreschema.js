@@ -83,8 +83,25 @@ var collectionMeta={
 			"ProductName": "",
 			"category_name": "",
 			"subcategory_name": ""
-		}
+		},
+		
+	},
+	
+	"latestprods": {
+		"collections": [],
+		"fields": {
+			"AboutUs": "",
+			"BrandName": "",
+			"BrandName_url": "",
+			"ProductDescription": "",
+			"ProductDetails": "",
+			"ProductName": "",
+			"category_name": "",
+			"subcategory_name": ""
+		},
+		
 	}
+
 
 
 }
