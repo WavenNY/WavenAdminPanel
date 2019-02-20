@@ -28,16 +28,22 @@
     "react-sortable-tree": "2.2.0",
     "react-table": "6.8.6",
     "recompose": "0.26.0",
-    "superagent": "3.5.1",
+    "superagent": "^4.1.0",
     "to-case": "2.0.0"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "react-scripts": "^2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

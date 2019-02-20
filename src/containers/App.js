@@ -1,7 +1,9 @@
 /*eslint no-useless-constructor: "off"*/
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import NavBar from "./../ui/template/NavBar";
 import firebase from "../FirebaseDB";
+import { CSVLink, CSVDownload } from "react-csv";
 
 class App extends Component {
   constructor(props) {
@@ -12,6 +14,8 @@ class App extends Component {
 
     this.unsubscribe = null;
     this.state = {
+      prefData: [],
+      srefData: [],
       indica: 0,
       sativa: 0,
       hybrid: 0,
@@ -20,7 +24,11 @@ class App extends Component {
       topicals: 0,
       concentrates: 0,
       hempcbd: 0,
-      edibles: 0
+      edibles: 0,
+      prodDownloadDisable: true,
+      strainDownloadDisable: true,
+      strainDownloader: "",
+      productDownloader: ""
     };
   }
   componentDidMount() {
@@ -35,9 +43,15 @@ class App extends Component {
     var concentrates = 0;
     var hempcbd = 0;
     var edibles = 0;
-
+    var prefData = [];
+    var srefData = [];
     this.sref.onSnapshot(docSnap => {
       docSnap.forEach(doc => {
+        // srefData[doc.id] = doc.data();
+        srefData.push({
+          id: doc.id,
+          data: doc.data()
+        });
         if (doc.data().Type) {
           if (doc.data().Type.indexOf("Hybrid") == 0) hybrid++;
           else if (doc.data().Type.indexOf("Indica") == 0) indica++;
@@ -47,12 +61,19 @@ class App extends Component {
       this.setState({
         hybrid,
         indica,
-        sativa
+        sativa,
+        srefData,
+        strainDownloadDisable: false
       });
     });
 
     this.pref.onSnapshot(docSnap => {
       docSnap.forEach(doc => {
+        // prefData[doc.id] = doc.data();
+        prefData.push({
+          id: doc.id,
+          data: doc.data()
+        });
         var docData = doc.data();
         if (docData.category_name != undefined) {
           switch (docData.category_name) {
@@ -88,7 +109,9 @@ class App extends Component {
         topicals,
         concentrates,
         hempcbd,
-        edibles
+        edibles,
+        prefData,
+        prodDownloadDisable: false
       });
     });
 
@@ -96,11 +119,70 @@ class App extends Component {
   }
 
   handleProductDataDownload = () => {
-    return alert("PD CSV Download");
+    var headers = [
+      "BrandName",
+      "ProductName",
+      "StarRatings",
+      "TotalReviews",
+      "Category",
+      "Sub Category",
+      "ProductDescription"
+    ];
+    var tmpRow = [];
+    this.state.prefData.map(data => {
+      tmpRow.push([
+        data.data.BrandName || "",
+        data.data.ProductName || "",
+        data.data.StarRatings || 0,
+        data.data.TotalReviews || 0,
+        data.data.category_name || "",
+        data.data.subcategory_name || "",
+        data.data.ProductDescription || ""
+      ]);
+    });
+
+    console.log(tmpRow);
+
+    var downloadElement = (
+      <CSVDownload
+        data={tmpRow}
+        headers={headers}
+        target="_blank"
+        filename="ProductDump.csv"
+      />
+    );
+    this.setState({ productDownloader: downloadElement });
+    console.log(this.state.productDownloader);
   };
 
   handleStrainsDataDownload = () => {
-    return alert("Strains CSV Download");
+    var headers = [
+      "Name",
+      "Type",
+      "Rating",
+      "TotalReviews",
+      "ProductDescription"
+    ];
+    var tmpRow = [];
+    this.state.srefData.map(data => {
+      tmpRow.push([
+        data.data.Name || "",
+        data.data.Type || "",
+        data.data.Rating || 0,
+        data.data.TotalReviews || 0,
+        data.data.ProductDescription || ""
+      ]);
+    });
+
+    var downloadElement = (
+      <CSVDownload
+        data={tmpRow}
+        headers={headers}
+        target="_blank"
+        filename="StrainsDump.csv"
+      />
+    );
+    this.setState({ strainDownloader: downloadElement });
   };
 
   render() {
@@ -137,9 +219,14 @@ class App extends Component {
                 </tbody>
               </table>
               <div>
-                <button onClick={() => this.handleStrainsDataDownload()}>
-                  Download Strains Data - CSV
-                </button>
+                {this.state.strainDownloadDisable ? (
+                  ""
+                ) : (
+                  <button onClick={() => this.handleStrainsDataDownload()}>
+                    Download Strains Data - CSV
+                    {this.state.strainDownloader}
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -185,9 +272,14 @@ class App extends Component {
                 </tbody>
               </table>
               <div>
-                <button onClick={() => this.handleProductDataDownload()}>
-                  Download Products Data - CSV
-                </button>
+                {this.state.prodDownloadDisable ? (
+                  ""
+                ) : (
+                  <button onClick={() => this.handleProductDataDownload()}>
+                    Download Products Data - CSV
+                    {this.state.productDownloader}
+                  </button>
+                )}
               </div>
             </div>
           </div>
