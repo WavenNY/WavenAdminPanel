@@ -166,7 +166,7 @@ exports.navigation=[
       "path": "latestprods",
       "name": "Products Data",
       "icon":"event",
-      "tableFields":["ProductName", "category_name", "ProductDescription", "StarRating", "TotalReviews"]
+      "tableFields":["ProductName", "category_name", "ProductDescription", "StarRatings", "TotalReviews"]
     }
     
     
